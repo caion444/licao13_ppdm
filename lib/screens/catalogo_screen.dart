@@ -1,34 +1,46 @@
 import 'package:flutter/material.dart';
 
+class ItemCatalogo {
+  final String titulo;
+  final String descricao;
+  final IconData icone;
+
+  const ItemCatalogo({
+    required this.titulo,
+    required this.descricao,
+    required this.icone,
+  });
+}
+
 class CatalogoScreen extends StatelessWidget {
   const CatalogoScreen({super.key});
 
-  final List> itens = const [
-    {
-      'titulo': 'Curso Flutter & Dart',
-      'descricao': 'Criação de interfaces modernas multiplataforma com Material Design.',
-      'icone': Icons.phone_android,
-    },
-    {
-      'titulo': 'Arquitetura Limpa Mobile',
-      'descricao': 'Organização de camadas, pacotes reutilizáveis e gerenciamento de estado.',
-      'icone': Icons.architecture,
-    },
-    {
-      'titulo': 'Consumo de APIs REST',
-      'descricao': 'Requisições assíncronas com Future, async/await e desserialização JSON.',
-      'icone': Icons.cloud_sync,
-    },
-    {
-      'titulo': 'Versionamento com Git & GitHub',
-      'descricao': 'Fluxo de commits semânticos, branches e boas práticas de repositório.',
-      'icone': Icons.code,
-    },
-    {
-      'titulo': 'Testes Automatizados',
-      'descricao': 'Garantia de qualidade com testes unitários e testes de widgets.',
-      'icone': Icons.verified,
-    },
+  final List<ItemCatalogo> itens = const [
+    ItemCatalogo(
+      titulo: 'Curso Flutter & Dart',
+      descricao: 'Criação de interfaces modernas multiplataforma com Material Design.',
+      icone: Icons.phone_android,
+    ),
+    ItemCatalogo(
+      titulo: 'Arquitetura Limpa Mobile',
+      descricao: 'Organização de camadas, pacotes reutilizáveis e gerenciamento de estado.',
+      icone: Icons.architecture,
+    ),
+    ItemCatalogo(
+      titulo: 'Consumo de APIs REST',
+      descricao: 'Requisições assíncronas com Future, async/await e desserialização JSON.',
+      icone: Icons.cloud_sync,
+    ),
+    ItemCatalogo(
+      titulo: 'Versionamento com Git & GitHub',
+      descricao: 'Fluxo de commits semânticos, branches e boas práticas de repositório.',
+      icone: Icons.code,
+    ),
+    ItemCatalogo(
+      titulo: 'Testes Automatizados',
+      descricao: 'Garantia de qualidade com testes unitários e testes de widgets.',
+      icone: Icons.verified,
+    ),
   ];
 
   @override
@@ -59,12 +71,12 @@ class CatalogoScreen extends StatelessWidget {
               leading: CircleAvatar(
                 backgroundColor: Colors.indigo.shade50,
                 child: Icon(
-                  item['icone'] as IconData,
+                  item.icone,
                   color: Colors.indigo,
                 ),
               ),
               title: Text(
-                item['titulo'] as String,
+                item.titulo,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
@@ -73,7 +85,7 @@ class CatalogoScreen extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 4.0),
                 child: Text(
-                  item['descricao'] as String,
+                  item.descricao,
                   style: TextStyle(color: Colors.grey.shade700),
                 ),
               ),
